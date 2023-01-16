@@ -1,3 +1,10 @@
+Get Service Plan IDs from here: https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference 
+
 Member users of the tenant that have an active Exchange Online Plan 1 license (this can be as part of another SKU which contains it, like M365 Business Basic, Standard, and Premium):
 
 (user.assignedPlans -any (assignedPlan.servicePlanId -eq "9aaf7827-d63c-4b61-89c3-182f06f82e5c" -and assignedPlan.capabilityStatus -eq "Enabled")) -and user.UserType -eq "Member"
+
+All member users in the tenant, no matter if licensed or disabled:
+
+(user.objectId -ne null) -and (user.userType -eq "Member")
+
