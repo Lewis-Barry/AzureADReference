@@ -1,0 +1,3 @@
+Member users of the tenant that have an active Exchange Online Plan 1 license:
+
+(user.assignedPlans -any (assignedPlan.servicePlanId -eq "9aaf7827-d63c-4b61-89c3-182f06f82e5c" -and assignedPlan.capabilityStatus -eq "Enabled")) -and user.UserType -eq "Member"
