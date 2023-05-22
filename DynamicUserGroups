@@ -8,3 +8,6 @@ All member users in the tenant, no matter if licensed or disabled:
 
 (user.objectId -ne null) -and (user.userType -eq "Member")
 
+All enabled users with a license
+
+(user.accountEnabled -eq True) and not (user.assignedplans -all (assignedplan.serviceplanid -eq null))
